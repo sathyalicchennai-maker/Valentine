@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 A Special Question 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Georgia', serif;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffecd2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Floating hearts animation */
+    .heart {
+        position: absolute;
+        font-size: 30px;
+        opacity: 0;
+        animation: float 6s infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .container {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 90%;
+        width: 450px;
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        color: #ff1744;
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    .question {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 30px;
+        line-height: 1.4;
+    }
+
+    .buttons-area {
+        position: relative;
+        min-height: 250px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .funny-message {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        padding: 12px 24px;
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        font-size: 1.1em;
+        color: #ff1744;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s;
+        white-space: nowrap;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .funny-message.show {
+        opacity: 1;
+        animation: bounce 0.5s;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+
+    .button-container {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        height: 180px;
+    }
+
+    button {
+        padding: 18px 35px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 140px;
+        height: 65px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #yesBtn {
+        background: linear-gradient(135deg, #ff1744, #ff5252);
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) translateX(-80px);
+        z-index: 1;
+    }
+
+    #yesBtn:active {
+        transform: translate(-50%, -50%) translateX(-80px) scale(0.95);
+    }
+
+    #noBtn {
+        background: linear-gradient(135deg, #757575, #9e9e9e);
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) translateX(80px);
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+
+    #noBtn:active {
+        transform: translate(-50%, -50%) translateX(80px) scale(0.95);
+    }
+
+    .success-message {
+        display: none;
+        animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .success-message h2 {
+        color: #ff1744;
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    .success-message p {
+        font-size: 1.3em;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .emoji {
+        font-size: 4em;
+        margin: 20px 0;
+        animation: heartBounce 1s infinite;
+    }
+
+    @keyframes heartBounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 1.6em;
+        }
+        .question {
+            font-size: 1.2em;
+        }
+        button {
+            width: 120px;
+            height: 60px;
+            font-size: 1.1em;
+        }
+        #yesBtn {
+            transform: translate(-50%, -50%) translateX(-70px);
+        }
+        #noBtn {
+            transform: translate(-50%, -50%) translateX(70px);
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <div id="questionSection">
+            <h1>💝 For My Special Someone 💝</h1>
+            <p class="question">Will you be my Valentine my dear Vishali pattu? 💕</p>
+            <div class="buttons-area">
+                <div class="funny-message" id="funnyMessage"></div>
+                <div class="button-container">
+                    <button id="yesBtn">Yes! 💖</button>
+                    <button id="noBtn">No</button>
+                </div>
+            </div>
+        </div>
+
+```
+    <div id="successMessage" class="success-message">
+        <div class="emoji">😍💖✨</div>
+        <h2>Yay! 🎉</h2>
+        <p>I knew you couldn't resist! 😊</p>
+        <p style="font-size: 2em; color: #ff1744; font-weight: bold;">I LOVE YOU! ❤️</p>
+        <div class="emoji">💑💕🌹</div>
+        <p style="font-size: 1.2em; color: #666; margin-top: 30px; font-style: italic;">- Your dear Sathya</p>
+    </div>
+</div>
+
+<script>
+    // Create floating hearts
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 3 + 's';
+        heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // Button logic
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const questionSection = document.getElementById('questionSection');
+    const successMessage = document.getElementById('successMessage');
+    const funnyMessage = document.getElementById('funnyMessage');
+    
+    let moveCount = 0;
+    const maxMoves = 5;
+    
+    const funnyMessages = [
+        "Nope! Try again! 😏",
+        "Not so fast! 😜",
+        "You can't escape love! 💕",
+        "Nice try! 😂",
+        "Getting tired? Just say yes! 😉"
+    ];
+
+    // Different positions for the No button (x offset, y offset from center)
+    const positions = [
+        { x: 80, y: -40 },    // top right
+        { x: -80, y: 50 },    // bottom left
+        { x: 80, y: 60 },     // bottom right  
+        { x: -80, y: -50 },   // top left
+        { x: 0, y: -70 }      // top center
+    ];
+
+    function showFunnyMessage(message) {
+        funnyMessage.textContent = message;
+        funnyMessage.classList.add('show');
+        setTimeout(() => {
+            funnyMessage.classList.remove('show');
+        }, 2000);
+    }
+
+    function showSuccess() {
+        questionSection.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Create burst of hearts
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createHeart, i * 100);
+        }
+    }
+
+    yesBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSuccess();
+    });
+
+    // For mobile - use touchstart and click
+    noBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (moveCount < maxMoves) {
+            // Show funny message
+            showFunnyMessage(funnyMessages[moveCount]);
+            
+            // Move button to new position
+            const pos = positions[moveCount];
+            noBtn.style.transform = `translate(-50%, -50%) translate(${pos.x}px, ${pos.y}px)`;
+            
+            moveCount++;
+            
+            // After 5 moves, change the button
+            if (moveCount === maxMoves) {
+                setTimeout(() => {
+                    noBtn.textContent = "Fine... Yes 💖";
+                    noBtn.style.background = "linear-gradient(135deg, #ff1744, #ff5252)";
+                }, 2100);
+            }
+        } else {
+            // After 5 moves, clicking leads to success
+            showSuccess();
+        }
+    });
+
+    // Also handle touch events for better mobile support
+    noBtn.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        noBtn.click();
+    }, { passive: false });
+</script>
+```
+
+</body>
+</html>
